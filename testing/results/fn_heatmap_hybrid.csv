@@ -1,0 +1,4 @@
+tier,camelcase,dry_violation,eval_injection,hardcoded_secret,list_mutation,missing_docstring,missing_super,mutable_default,none_comparison,off_by_one,other,performance_n2,shared_class_state,unclosed_file
+1,43,0,0,0,3,50,0,9,1,11,0,0,0,0
+2,23,0,6,10,1,0,9,0,0,0,13,17,3,0
+3,0,18,0,0,6,0,0,0,0,0,33,0,0,4

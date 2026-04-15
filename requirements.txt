@@ -1,0 +1,35 @@
+# Requirements for AI Code Mentor
+# Install with: pip install -r requirements.txt
+
+# Core ML
+torch
+bitsandbytes
+accelerate
+transformers
+sentence-transformers
+
+# LangChain (RAG)
+langchain
+langchain-community
+langchain-core
+langchain-text-splitters
+langchain-huggingface
+
+# Vector Store & Retrieval
+faiss-cpu
+rank_bm25
+
+# Static Analysis
+pylint
+
+# Web Scraping
+beautifulsoup4
+
+# Hugging Face
+huggingface_hub
+
+# Web Interface
+streamlit
+
+# Tunnel (for Kaggle/Colab)
+pyngrok

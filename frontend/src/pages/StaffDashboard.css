@@ -1,0 +1,383 @@
+/* ============================================
+   Staff Dashboard
+   ============================================ */
+
+.staffApp {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+.dashboardLayout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ---- Sidebar Nav ---- */
+.dashNav {
+  width: 180px;
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dashNavBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: all var(--duration) var(--ease);
+}
+.dashNavBtn:hover { background: var(--bg-hover); color: var(--text-primary); }
+.dashNavBtn.active {
+  background: var(--accent-blue-light);
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+/* ---- Main Content ---- */
+.dashMain {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--bg-primary);
+}
+
+.dashContent {
+  padding: 28px 32px;
+  animation: fadeIn 0.3s var(--ease);
+}
+
+.dashContentHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.dashContentHeader h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.refreshBtn {
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all var(--duration);
+}
+.refreshBtn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+.dashLoading, .dashEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  gap: 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+.dashEmptyHint { font-size: 0.8rem; color: var(--text-muted); }
+
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ---- Analytics: Cards ---- */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+/* ---- Analytics: Charts ---- */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.chartCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.chartCardWide {
+  grid-column: span 2;
+}
+
+.chartTitle {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.chartEmpty {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ---- Students: Table ---- */
+.tableWrap {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.studentTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.studentTable thead th {
+  padding: 12px 16px;
+  background: var(--bg-sidebar);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--duration);
+  white-space: nowrap;
+}
+.studentTable thead th:hover { background: var(--bg-hover); }
+.studentTable thead th.sorted { color: var(--accent-blue); }
+
+.studentRow td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.studentRow:hover td { background: var(--bg-hover); }
+.studentRow.expanded td { background: var(--accent-blue-light); }
+.studentRow:last-child td { border-bottom: none; }
+
+.tdName { font-weight: 600; }
+.tdMono { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary); }
+.tdCritical { color: var(--accent-red); font-weight: 600; }
+.tdStyle { color: var(--accent-yellow); font-weight: 600; }
+
+/* Risk badges */
+.riskBadge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.riskHigh   { background: var(--accent-red-light); color: var(--accent-red); }
+.riskMid    { background: var(--accent-yellow-light); color: var(--accent-yellow); }
+.riskLow    { background: var(--accent-green-light); color: var(--accent-green); }
+
+/* Expanded student row */
+.expandRow td { padding: 0 !important; }
+.expandContent {
+  padding: 20px;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+  animation: fadeIn 0.2s var(--ease);
+}
+.expandContent strong { font-size: 0.85rem; color: var(--text-secondary); display: block; margin-bottom: 12px; }
+
+.miniLoading { display: flex; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.82rem; }
+.miniSpinner {
+  width: 16px; height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.noReviews { font-size: 0.82rem; color: var(--text-muted); }
+
+.miniReviewList { display: flex; flex-direction: column; gap: 8px; max-height: 240px; overflow-y: auto; }
+.miniReviewCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+}
+.miniReviewTop {
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+  font-size: 0.78rem; color: var(--text-muted); margin-bottom: 6px;
+  font-family: var(--font-mono);
+}
+.miniDate { color: var(--text-secondary); }
+.miniGrade { font-weight: 700; color: var(--accent-blue); }
+.miniCodePreview {
+  font-family: var(--font-mono); font-size: 0.72rem;
+  background: var(--bg-code); border-radius: var(--radius-sm);
+  padding: 4px 8px; color: var(--text-secondary);
+  white-space: pre; overflow: hidden; max-height: 2.4em;
+}
+
+/* ---- Review Feed ---- */
+.feedList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feedCard {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--duration);
+}
+.feedCard:hover { box-shadow: var(--shadow-md); }
+.feedCard.feedExpanded { border-color: var(--accent-blue); }
+
+.feedCardHeader {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  gap: 16px;
+  flex-wrap: wrap;
+  background: var(--bg-secondary);
+}
+.feedCardHeader:hover { background: var(--bg-hover); }
+
+.feedCardLeft { display: flex; align-items: center; gap: 10px; }
+.feedStudentName { font-weight: 700; font-size: 0.9rem; color: var(--text-primary); }
+.feedStudentId { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
+
+.feedCardMeta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.feedGrade { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; }
+.feedGrade.grade-good { color: var(--accent-green); }
+.feedGrade.grade-mid  { color: var(--accent-yellow); }
+.feedGrade.grade-low  { color: var(--accent-red); }
+
+.feedSev { font-size: 0.78rem; font-weight: 600; }
+.feedDate { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); }
+.feedChevron { font-size: 0.8rem; color: var(--text-muted); }
+
+.feedCodePreview {
+  padding: 8px 20px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: var(--bg-code);
+  border-top: 1px solid var(--border);
+  white-space: pre;
+  overflow: hidden;
+  max-height: 2.8em;
+}
+
+.feedExpandBody {
+  border-top: 1px solid var(--border);
+  animation: fadeIn 0.2s var(--ease);
+}
+
+.feedReviewText {
+  padding: 20px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+  max-height: 320px;
+  overflow-y: auto;
+  font-family: var(--font-main);
+}
+
+/* Annotation input area */
+.annotationInput {
+  padding: 20px;
+  background: var(--bg-secondary);
+}
+.annotationInput h4 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-purple);
+  margin-bottom: 10px;
+}
+
+.annotationTextarea {
+  width: 100%;
+  padding: 12px;
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  resize: vertical;
+  outline: none;
+  color: var(--text-primary);
+  transition: border-color var(--duration);
+  line-height: 1.5;
+}
+.annotationTextarea:focus { border-color: var(--accent-purple); }
+.annotationTextarea::placeholder { color: var(--text-muted); }
+
+.annotateSubmitBtn {
+  margin-top: 10px;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  background: var(--accent-purple);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration);
+}
+.annotateSubmitBtn:hover:not(:disabled) { background: #7c3aed; transform: translateY(-1px); }
+.annotateSubmitBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@media (max-width: 768px) {
+  .dashboardLayout { flex-direction: column; height: auto; }
+  .dashNav { width: 100%; flex-direction: row; padding: 12px; overflow-x: auto; }
+  .chartsGrid { grid-template-columns: 1fr; }
+  .chartCardWide { grid-column: span 1; }
+  .dashContent { padding: 16px; }
+}

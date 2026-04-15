@@ -1,0 +1,238 @@
+/* ============================================
+   Review History Sidebar
+   ============================================ */
+
+.historyPanel {
+  width: 250px;
+  flex-shrink: 0;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: width var(--duration-slow) var(--ease);
+  animation: slideRight 0.3s var(--ease);
+}
+
+.historyPanel.collapsed {
+  width: 48px;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.historyHeader {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  background: var(--bg-secondary);
+}
+
+.historyTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.historyCount {
+  background: var(--accent-blue-light);
+  color: var(--accent-blue);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 20px;
+}
+
+.collapseBtn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  width: 28px; height: 28px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: all var(--duration);
+  flex-direction: column;
+  gap: 2px;
+}
+.collapseBtn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+.collapseBtn.inline { flex-direction: row; }
+
+.collapseCount {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+/* Actions bar */
+.historyActions {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.newReviewBtn {
+  width: 100%;
+  padding: 8px;
+  background: var(--accent-blue);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--duration);
+}
+.newReviewBtn:hover { background: #3651d4; transform: translateY(-1px); }
+
+.historySearch {
+  width: 100%;
+  padding: 7px 10px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--duration);
+}
+.historySearch:focus { border-color: var(--accent-blue); }
+.historySearch::placeholder { color: var(--text-muted); }
+
+/* List */
+.historyList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.historyLoading, .historyEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 32px 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: pre-line;
+}
+
+.miniSpinner {
+  width: 20px; height: 20px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent-blue);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* History item cards */
+.historyItem {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all var(--duration) var(--ease);
+  font-family: var(--font-main);
+}
+.historyItem:hover {
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(2px);
+}
+.historyItem.active {
+  border-color: var(--accent-blue);
+  background: var(--accent-blue-light);
+  box-shadow: 0 0 0 2px rgba(67,97,238,0.15);
+}
+
+.historyItemTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sevBadge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+.sev-critical { background: var(--accent-red-light); color: var(--accent-red); }
+.sev-style    { background: var(--accent-yellow-light); color: var(--accent-yellow); }
+.sev-clean    { background: var(--accent-green-light); color: var(--accent-green); }
+
+.gradeBadge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+.grade-good { background: var(--accent-green-light); color: var(--accent-green); }
+.grade-mid  { background: var(--accent-yellow-light); color: var(--accent-yellow); }
+.grade-low  { background: var(--accent-red-light); color: var(--accent-red); }
+
+.historyItemMeta {
+  display: flex;
+  gap: 10px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.historyItemDate {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.historyCodePreview {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  background: var(--bg-code);
+  border-radius: var(--radius-sm);
+  padding: 5px 8px;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  max-height: 3em;
+  overflow: hidden;
+}
+
+.annotationBadge {
+  font-size: 0.7rem;
+  color: var(--accent-purple);
+  background: var(--accent-purple-light);
+  padding: 2px 8px;
+  border-radius: 20px;
+  align-self: flex-start;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .historyPanel { display: none; }
+}

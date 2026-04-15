@@ -1,0 +1,193 @@
+/* ============================================
+   Code Editor Component Styles
+   ============================================ */
+
+.editorPanel {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  height: 100%;
+}
+
+.panelHeader {
+  padding: 12px 24px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.panelTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panelTitle .icon {
+  font-size: 1rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+}
+
+.badgeMuted {
+  background: var(--bg-input);
+  color: var(--text-muted);
+}
+
+.panelBody {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.gutter {
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border);
+  padding: 20px 8px 20px 12px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  user-select: none;
+  min-width: 40px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lineNumber {
+  height: 1.8em; /* Match textarea line-height */
+}
+
+.codeTextarea {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.8;
+  padding: 20px 24px;
+  background: var(--bg-code);
+  color: var(--text-primary);
+  border: none;
+  resize: none;
+  outline: none;
+  tab-size: 4;
+  white-space: pre;
+  overflow: auto;
+}
+
+.codeTextarea::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Action Bar */
+.actionBar {
+  padding: 12px 24px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.actionMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.limitWarning {
+  color: var(--accent-red);
+  font-weight: 500;
+}
+
+.limitCaution {
+  color: var(--accent-yellow);
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviewBtn {
+  font-family: var(--font-main);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 24px;
+  background: var(--accent-blue);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reviewBtn:hover:not(:disabled) {
+  background: #3651d4;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(67, 97, 238, 0.3);
+}
+
+.reviewBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.stopBtn {
+  font-family: var(--font-main);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  background: var(--accent-red);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration) var(--ease);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stopBtn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .editorPanel {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    min-height: 40vh;
+  }
+
+  .panelHeader,
+  .actionBar {
+    padding: 10px 16px;
+  }
+}

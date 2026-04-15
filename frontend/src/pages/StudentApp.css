@@ -1,0 +1,35 @@
+/* ============================================
+   Student App Layout
+   ============================================ */
+
+.studentApp {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+.studentWorkspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .workspace {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .studentWorkspace {
+    height: auto;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,13 @@
+Mode,Tier,Tier_Label,TP,FP,FN,Precision,Recall,F1
+pylint_only,1,Tier 1 (Novice),0,0,166,0.0,0.0,0.0
+pylint_only,2,Tier 2 (Junior),0,0,177,0.0,0.0,0.0
+pylint_only,3,Tier 3 (Monolithic),0,0,95,0.0,0.0,0.0
+rag_only,1,Tier 1 (Novice),100,0,66,1.0,0.6024,0.7519
+rag_only,2,Tier 2 (Junior),103,0,74,1.0,0.5819,0.7357
+rag_only,3,Tier 3 (Monolithic),20,0,75,1.0,0.2105,0.3478
+qwen_only,1,Tier 1 (Novice),55,17,111,0.7639,0.3313,0.4622
+qwen_only,2,Tier 2 (Junior),118,40,59,0.7468,0.6667,0.7045
+qwen_only,3,Tier 3 (Monolithic),33,25,62,0.569,0.3474,0.4314
+hybrid,1,Tier 1 (Novice),49,34,117,0.5904,0.2952,0.3936
+hybrid,2,Tier 2 (Junior),95,35,82,0.7308,0.5367,0.6189
+hybrid,3,Tier 3 (Monolithic),34,38,61,0.4722,0.3579,0.4072

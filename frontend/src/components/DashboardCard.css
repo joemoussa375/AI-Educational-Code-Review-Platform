@@ -1,0 +1,77 @@
+/* ============================================
+   Dashboard Card Component
+   ============================================ */
+
+.dashCard {
+  background: var(--card-gradient, var(--gradient-card-blue));
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+  cursor: default;
+}
+
+.dashCard::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 100px; height: 100px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+
+.dashCard::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: 20px;
+  width: 70px; height: 70px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+}
+
+.dashCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.dashCardInner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.dashCardIcon {
+  font-size: 2rem;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.dashCardContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.dashCardValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.dashCardLabel {
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.dashCardSub {
+  font-size: 0.72rem;
+  opacity: 0.6;
+  margin-top: 2px;
+}

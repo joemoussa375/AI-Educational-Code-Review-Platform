@@ -1,0 +1,172 @@
+/* ============================================
+   AI Code Mentor — Global Design System
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ---- Design Tokens ---- */
+:root {
+  /* Backgrounds */
+  --bg-primary: #f8f9fc;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #f1f3f9;
+  --bg-code: #f6f8fa;
+  --bg-hover: #eef1f8;
+  --bg-sidebar: #f3f4f8;
+
+  /* Text */
+  --text-primary: #1a1d2e;
+  --text-secondary: #5c6176;
+  --text-muted: #9ca3b8;
+  --text-inverse: #ffffff;
+
+  /* Accents */
+  --accent-blue: #4361ee;
+  --accent-blue-light: #eef1ff;
+  --accent-green: #10b981;
+  --accent-green-light: #ecfdf5;
+  --accent-red: #ef4444;
+  --accent-red-light: #fef2f2;
+  --accent-yellow: #f59e0b;
+  --accent-yellow-light: #fffbeb;
+  --accent-purple: #8b5cf6;
+  --accent-purple-light: #f3f0ff;
+  --accent-indigo: #6366f1;
+  --accent-indigo-light: #eef2ff;
+  --accent-orange: #f97316;
+  --accent-orange-light: #fff7ed;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #4361ee, #8b5cf6);
+  --gradient-card-blue: linear-gradient(135deg, #4361ee 0%, #6366f1 100%);
+  --gradient-card-green: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-card-red: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --gradient-card-orange: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+
+  /* Borders & Shadows */
+  --border: #e2e6ef;
+  --border-focus: var(--accent-blue);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+  /* Spacing & Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+
+  /* Typography */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 200ms;
+  --duration-slow: 350ms;
+}
+
+/* ---- Reset ---- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  height: 100%;
+  line-height: 1.6;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Utility ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ---- Focus Ring ---- */
+:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* ---- Animations ---- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}

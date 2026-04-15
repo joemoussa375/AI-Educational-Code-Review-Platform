@@ -1,0 +1,54 @@
+mode,tier_label,label_severity,label_category,fp_count,fp_script_ids
+hybrid,Tier 1 (Novice),critical,bare_except,14,"[8, 9, 15, 18, 19, 20, 26, 28, 30, 31, 34, 36, 40, 44]"
+hybrid,Tier 2 (Junior),critical,bare_except,14,"[52, 54, 56, 57, 58, 59, 60, 62, 64, 67, 71, 73, 78, 79]"
+hybrid,Tier 3 (Monolithic),style,camelcase,13,"[83, 85, 86, 88, 89, 90, 94, 95, 96, 97, 98, 99, 100]"
+hybrid,Tier 3 (Monolithic),critical,bare_except,11,"[83, 85, 86, 87, 88, 89, 90, 93, 94, 95, 99]"
+hybrid,Tier 2 (Junior),critical,camelcase,6,"[59, 65, 66, 75, 76, 78]"
+hybrid,Tier 3 (Monolithic),critical,missing_docstring,6,"[86, 94, 95, 96, 98, 99]"
+hybrid,Tier 1 (Novice),critical,missing_docstring,5,"[1, 27, 37, 41, 48]"
+hybrid,Tier 2 (Junior),info,eval_injection,5,"[51, 62, 66, 77, 80]"
+hybrid,Tier 1 (Novice),critical,camelcase,4,"[14, 26, 30, 46]"
+hybrid,Tier 1 (Novice),critical,dry_violation,4,"[3, 13, 34, 49]"
+hybrid,Tier 1 (Novice),critical,hardcoded_secret,4,"[13, 25, 44, 49]"
+hybrid,Tier 3 (Monolithic),critical,dry_violation,3,"[84, 87, 89]"
+hybrid,Tier 1 (Novice),critical,eval_injection,2,"[18, 44]"
+hybrid,Tier 2 (Junior),critical,shared_class_state,2,"[61, 77]"
+hybrid,Tier 2 (Junior),critical,unclosed_file,2,"[52, 55]"
+hybrid,Tier 3 (Monolithic),info,bare_except,2,"[96, 98]"
+hybrid,Tier 1 (Novice),style,missing_docstring,1,[50]
+hybrid,Tier 2 (Junior),critical,hardcoded_secret,1,[55]
+hybrid,Tier 2 (Junior),critical,logical_error,1,[79]
+hybrid,Tier 2 (Junior),info,bare_except,1,[70]
+hybrid,Tier 2 (Junior),info,performance_n2,1,[71]
+hybrid,Tier 2 (Junior),style,list_mutation,1,[57]
+hybrid,Tier 2 (Junior),style,missing_docstring,1,[71]
+hybrid,Tier 3 (Monolithic),critical,camelcase,1,[92]
+hybrid,Tier 3 (Monolithic),critical,off_by_one,1,[99]
+hybrid,Tier 3 (Monolithic),info,unclosed_file,1,[90]
+qwen_only,Tier 2 (Junior),critical,bare_except,13,"[53, 54, 56, 58, 59, 64, 65, 68, 69, 70, 72, 73, 75]"
+qwen_only,Tier 1 (Novice),critical,camelcase,10,"[2, 6, 7, 12, 19, 30, 38, 40, 49, 50]"
+qwen_only,Tier 2 (Junior),critical,list_mutation,8,"[54, 56, 58, 59, 61, 64, 66, 69]"
+qwen_only,Tier 3 (Monolithic),style,camelcase,8,"[83, 86, 89, 90, 94, 96, 98, 100]"
+qwen_only,Tier 2 (Junior),critical,camelcase,5,"[57, 62, 68, 71, 76]"
+qwen_only,Tier 3 (Monolithic),critical,bare_except,5,"[85, 86, 87, 88, 90]"
+qwen_only,Tier 2 (Junior),info,eval_injection,4,"[51, 55, 63, 76]"
+qwen_only,Tier 3 (Monolithic),style,missing_docstring,4,"[81, 83, 90, 100]"
+qwen_only,Tier 2 (Junior),critical,hardcoded_secret,3,"[54, 64, 68]"
+qwen_only,Tier 3 (Monolithic),info,bare_except,3,"[83, 84, 89]"
+qwen_only,Tier 2 (Junior),critical,unclosed_file,2,"[52, 55]"
+qwen_only,Tier 3 (Monolithic),critical,dry_violation,2,"[90, 99]"
+qwen_only,Tier 1 (Novice),critical,bare_except,1,[26]
+qwen_only,Tier 1 (Novice),critical,eval_injection,1,[26]
+qwen_only,Tier 1 (Novice),critical,hardcoded_secret,1,[26]
+qwen_only,Tier 1 (Novice),critical,off_by_one,1,[39]
+qwen_only,Tier 1 (Novice),critical,performance_n2,1,[26]
+qwen_only,Tier 1 (Novice),style,missing_docstring,1,[40]
+qwen_only,Tier 1 (Novice),style,mutable_default,1,[19]
+qwen_only,Tier 2 (Junior),critical,missing_docstring,1,[56]
+qwen_only,Tier 2 (Junior),critical,shared_class_state,1,[79]
+qwen_only,Tier 2 (Junior),info,list_mutation,1,[65]
+qwen_only,Tier 2 (Junior),info,unclosed_file,1,[56]
+qwen_only,Tier 2 (Junior),style,performance_n2,1,[60]
+qwen_only,Tier 3 (Monolithic),critical,camelcase,1,[95]
+qwen_only,Tier 3 (Monolithic),critical,hardcoded_secret,1,[89]
+qwen_only,Tier 3 (Monolithic),style,unclosed_file,1,[92]
